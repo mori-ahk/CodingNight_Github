@@ -14,15 +14,30 @@
 
 import UIKit
 
+enum CellType {
+    case repos
+    case users
+}
 
 class HomeViewController: UIViewController {
     
+    var dataSource: [AnyObject]?
+    var cellType: CellType?
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "homeToDetailInfo" {
+            if let detailInfoVC = segue.destination as? DetailInfoCollectionViewController {
+                detailInfoVC.dataSource = self.dataSource
+                detailInfoVC.cellType = self.cellType
+            }
+        }
+    }
     
     @IBOutlet weak var optionsCollectionView: UICollectionView! {
         didSet {
             optionsCollectionView.delegate = self
             optionsCollectionView.dataSource = self
-            optionsCollectionView.backgroundColor = UIColor.white.withAlphaComponent(0.945)
+            optionsCollectionView.backgroundColor = .clear
         }
     }
     
@@ -85,14 +100,14 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "optionCellIdentifier", for: indexPath) as! OptionCollectionCell
         cell.optionLabel.text = titles[indexPath.row]
-        cell.backgroundColor = UIColor.black.withAlphaComponent(0.85)
+        cell.backgroundColor = UIColor.black.withAlphaComponent(0.2)
         cell.layer.cornerRadius = 20
         cell.clipsToBounds = true
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: self.view.frame.width - 40, height: 100)
+        return CGSize(width: self.view.frame.width - 70, height: 90)
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -100,22 +115,38 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
         case 0:
             guard let reposURL = currentUser?.repos_url else { return }
             NetworkServices.sharedInstance.fetchData(for: RequestType.repos, from: reposURL) { (serverResponse: [Repository]) in
-                print(serverResponse)
+                self.dataSource = serverResponse as [AnyObject]
+                self.cellType = .repos
+                DispatchQueue.main.async {
+                    self.performSegue(withIdentifier: "homeToDetailInfo", sender: self)
+                }
             }
         case 1:
             guard let followersURL = currentUser?.followers_url else { return }
             NetworkServices.sharedInstance.fetchData(for: RequestType.followers, from: followersURL) { (serverResponse: [User]) in
-                print(serverResponse)
+                self.dataSource = serverResponse as [AnyObject]
+                self.cellType = .users
+                DispatchQueue.main.async {
+                    self.performSegue(withIdentifier: "homeToDetailInfo", sender: self)
+                }
             }
         case 2:
-            guard let followingURL = currentUser?.following_url else { return }
+            guard let followingURL = currentUser?.trim(url: currentUser?.following_url) else { return }
             NetworkServices.sharedInstance.fetchData(for: RequestType.following, from: followingURL) { (serverResponse: [User]) in
-                print(serverResponse)
+                self.dataSource = serverResponse as [AnyObject]
+                self.cellType = .users
+                DispatchQueue.main.async {
+                    self.performSegue(withIdentifier: "homeToDetailInfo", sender: self)
+                }
             }
         case 3:
-            guard let starredURL = currentUser?.starred_url else { return }
+            guard let starredURL = currentUser?.trim(url: currentUser?.starred_url) else { return }
             NetworkServices.sharedInstance.fetchData(for: RequestType.starred, from: starredURL) { (serverResponse: [Repository]) in
-                print(serverResponse)
+                self.dataSource = serverResponse as [AnyObject]
+                self.cellType = .repos
+                DispatchQueue.main.async {
+                    self.performSegue(withIdentifier: "homeToDetailInfo", sender: self)
+                }
             }
         default:
             break

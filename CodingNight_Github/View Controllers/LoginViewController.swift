@@ -10,7 +10,13 @@ import UIKit
 
 class LoginViewController: UIViewController {
     
-    
+    @IBOutlet weak var submit: UIButton! {
+        didSet {
+            submit.layer.cornerRadius = submit.frame.width/2
+            submit.clipsToBounds = true
+            
+        }
+    }
     @IBAction func Submit(_ sender: Any) {
         guard let username = usernameTextField.text else { return }
         //First write like this and explain perform segue should be called
@@ -33,7 +39,7 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = .white
+        self.view.backgroundColor = UIColor.white.withAlphaComponent(0.9)
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

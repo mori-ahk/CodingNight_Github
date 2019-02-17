@@ -39,7 +39,7 @@ class NetworkServices {
             guard error == nil else { return }
             guard let data = data else { return }
             switch requestType {
-            case .repos:
+            case .repos, .starred:
                 guard let repos = try? JSONDecoder().decode([Repository].self, from: data) as! T else { return }
                 completionHandler(repos)
             default:

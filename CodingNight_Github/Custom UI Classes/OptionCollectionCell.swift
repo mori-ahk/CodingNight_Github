@@ -12,7 +12,7 @@ class OptionCollectionCell: UICollectionViewCell {
     
     @IBOutlet weak var optionLabel: UILabel! {
         didSet {
-            optionLabel.textColor = UIColor.white.withAlphaComponent(0.85)
+            optionLabel.textColor = UIColor.black.withAlphaComponent(0.85)
         }
     }
     

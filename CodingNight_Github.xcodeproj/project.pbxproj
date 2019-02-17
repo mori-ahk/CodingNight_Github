@@ -18,6 +18,9 @@
 		F5B92BA52217B47E0055A131 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F5B92BA32217B47E0055A131 /* LaunchScreen.storyboard */; };
 		F5B92BAD2217B9CB0055A131 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5B92BAC2217B9CB0055A131 /* User.swift */; };
 		F5B92BAF2217D8D80055A131 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5B92BAE2217D8D80055A131 /* LoginViewController.swift */; };
+		F5C6018E2219BE9200B35B1A /* DetailInfoCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5C6018D2219BE9200B35B1A /* DetailInfoCollectionViewController.swift */; };
+		F5C601902219BFDB00B35B1A /* DetailInfoForReposCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5C6018F2219BFDB00B35B1A /* DetailInfoForReposCollectionViewCell.swift */; };
+		F5C601922219C3C600B35B1A /* DetailInfoForUsersCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5C601912219C3C600B35B1A /* DetailInfoForUsersCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +37,9 @@
 		F5B92BA62217B47E0055A131 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F5B92BAC2217B9CB0055A131 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		F5B92BAE2217D8D80055A131 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		F5C6018D2219BE9200B35B1A /* DetailInfoCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailInfoCollectionViewController.swift; sourceTree = "<group>"; };
+		F5C6018F2219BFDB00B35B1A /* DetailInfoForReposCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailInfoForReposCollectionViewCell.swift; sourceTree = "<group>"; };
+		F5C601912219C3C600B35B1A /* DetailInfoForUsersCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailInfoForUsersCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,6 +58,8 @@
 			children = (
 				F57A7222221882C400C8EDC6 /* OptionCollectionCell.swift */,
 				F57A721E221864CA00C8EDC6 /* CachableImage.swift */,
+				F5C6018F2219BFDB00B35B1A /* DetailInfoForReposCollectionViewCell.swift */,
+				F5C601912219C3C600B35B1A /* DetailInfoForUsersCollectionViewCell.swift */,
 			);
 			path = "Custom UI Classes";
 			sourceTree = "<group>";
@@ -61,6 +69,7 @@
 			children = (
 				F5B92BAE2217D8D80055A131 /* LoginViewController.swift */,
 				F5B92B9C2217B47D0055A131 /* HomeViewController.swift */,
+				F5C6018D2219BE9200B35B1A /* DetailInfoCollectionViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -177,13 +186,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F5C6018E2219BE9200B35B1A /* DetailInfoCollectionViewController.swift in Sources */,
 				F5B92BAF2217D8D80055A131 /* LoginViewController.swift in Sources */,
 				F57A721F221864CA00C8EDC6 /* CachableImage.swift in Sources */,
 				F5B92B9D2217B47D0055A131 /* HomeViewController.swift in Sources */,
 				F57A722A22188C6B00C8EDC6 /* Repository.swift in Sources */,
+				F5C601902219BFDB00B35B1A /* DetailInfoForReposCollectionViewCell.swift in Sources */,
 				F5B92B9B2217B47D0055A131 /* AppDelegate.swift in Sources */,
 				F57A7225221887FE00C8EDC6 /* NetworkServices.swift in Sources */,
 				F57A7223221882C400C8EDC6 /* OptionCollectionCell.swift in Sources */,
+				F5C601922219C3C600B35B1A /* DetailInfoForUsersCollectionViewCell.swift in Sources */,
 				F5B92BAD2217B9CB0055A131 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -42,6 +42,13 @@ struct User: Codable {
         self.following = 0
         self.public_repos = 0
     }
+    
+    func trim(url URLString: String?) -> String {
+        guard var URLString = URLString else { return String() }
+        let index = URLString.firstIndex(of: "{") ?? URLString.endIndex
+        URLString = String(URLString[..<index])
+        return URLString
+    }
 }
 
 //"login": "mori-ahk",
