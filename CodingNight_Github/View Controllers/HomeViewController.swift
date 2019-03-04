@@ -6,12 +6,6 @@
 //  Copyright © 2019 Morteza Ahmadi. All rights reserved.
 //
 
-//TODO: Explain
-    //Explain closure and the concept of completion handlers, async
-    //Explain Codable protocol and how it works
-    //Explain API and JSON
-
-
 import UIKit
 
 enum CellType {

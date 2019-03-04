@@ -19,7 +19,7 @@ class LoginViewController: UIViewController {
     }
     @IBAction func Submit(_ sender: Any) {
         guard let username = usernameTextField.text else { return }
-        //First write like this and explain perform segue should be called
+        //Try this and figure our why it's not working
 //        getData(for: username) { (user) in
 //            self.currentUser = user
 //        }
