@@ -19,11 +19,6 @@ class LoginViewController: UIViewController {
     }
     @IBAction func Submit(_ sender: Any) {
         guard let username = usernameTextField.text else { return }
-        //Try this and figure our why it's not working
-//        getData(for: username) { (user) in
-//            self.currentUser = user
-//        }
-//        performSegue(withIdentifier: "loginToHome", sender: self)
         NetworkServices.sharedInstance.getData(for: username) { (user) in
             self.currentUser = user
             DispatchQueue.main.async {

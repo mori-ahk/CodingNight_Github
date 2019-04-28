@@ -32,12 +32,6 @@ struct User: Codable {
         self.following_url = ""
         self.starred_url = ""
         self.repos_url = ""
-        //remove optional to show if there were all optionals, there would be no need for init()
-        self.company = ""
-        self.email = ""
-        self.bio = ""
-        self.location = ""
-        //-------------------------------------------------------------------------------------
         self.followers = 0
         self.following = 0
         self.public_repos = 0
